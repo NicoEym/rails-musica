@@ -8,7 +8,13 @@
         <h2><%= @song.style.name %>  </h2>
         <h2><%= @song.link_ytb %>  </h2>
         <h2><%= @song.lyrics %>  </h2>
+        <h2><%= @song.link_ytb.last(11) %>  </h2>
 
+<iframe width="560" height="315" src="http://www.youtube.com/embed/#{@song.link_ytb.last(11)}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+ <%= youtube_video (@song.link_ytb)  %>
+
+<% video_tag( @song.link_ytb , :size => "560x315", :controls => true, :autobuffer => true ) %>
 
     </div>
 </div>

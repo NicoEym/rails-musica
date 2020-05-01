@@ -1,12 +1,9 @@
 <div class="container">
   <div class="row">
 
-      <% @songs.each do |song| %>
-        <h2><%= song.title %>  </h2>
-        <h2><%= song.artist.name %>  </h2>
-        <h2><%= song.level.name %>  </h2>
-        <h2><%= song.style.name %>  </h2>
-      <% end %>
+
+        <%= render 'shared/cards', song: @songs %>
+
 
     </div>
 </div>
