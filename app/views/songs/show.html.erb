@@ -1,20 +1,18 @@
 <div class="container">
-  <div class="row">
 
+<div class="row">
 
-        <h2><%= @song.title %>  </h2>
-        <h2><%= @song.artist.name %>  </h2>
+        <h2><%= @song.title %>  - <%= @song.artist.name %>  </h2>
+
         <h2><%= @song.level.name %>  </h2>
+<br>
         <h2><%= @song.style.name %>  </h2>
-        <h2><%= @song.link_ytb %>  </h2>
-        <h2><%= @song.lyrics %>  </h2>
-        <h2><%= @song.link_ytb.last(11) %>  </h2>
+<br>
+</div>
+      <%= youtube_video ("http://www.youtube.com/embed/#{@song.link_ytb.last(11)}")  %>
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/#{@song.link_ytb.last(11)}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
- <%= youtube_video (@song.link_ytb)  %>
-
-<% video_tag( @song.link_ytb , :size => "560x315", :controls => true, :autobuffer => true ) %>
-
-    </div>
+ <br>
+    <h2>Letras:</h2>
+    <p><%= @song.lyrics %>  </p>
+  </div>
 </div>
