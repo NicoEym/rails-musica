@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.where(level: params[:level], style: params[:style])
+    @songs = Song.all
+    # where(level: params[:level], style: params[:style])
   end
 
   def show
