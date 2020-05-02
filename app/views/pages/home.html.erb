@@ -1,13 +1,20 @@
 <div class="banner" style="background-image: linear-gradient(rgba(100,100,100,0.1),rgba(100,100,100,0.1)), url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);">
-  <div class="container top-left offset-xs-6 offset-md-1">
+  <div class="container offset-xs-6 offset-md-1">
     <h1>Chante, chante, chante !</h1>
     <p>Aprende o francês com musicas</p>
     <div class="search-form-home">
       <div class="row">
         <div class="col-xs-12 col-md-4">
+          <%= simple_form_for:search, url: songs_path, method: "GET", input_html: { class: "form-inline search-form" } do |f| %>
+
+          <%= f.input :level, :collection => @levels %>
+          <%= f.input :style, :collection => @styles %>
+          <%= f.submit %>
+          <% end %>
 
         </div>
       </div>
     </div>
   </div>
 </div>
+s
