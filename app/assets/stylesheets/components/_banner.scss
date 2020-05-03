@@ -36,12 +36,20 @@
 
 
 .form-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   height:100vh;
   min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: space-between;
 }
 
+.form-label {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.9;
+
+
+}
 
 

@@ -5,11 +5,11 @@
     <div class="search-form-home">
       <div class="row">
         <div class="col-xs-12 col-md-4">
-          <%= simple_form_for:search, url: songs_path, method: "GET", input_html: { class: "form-inline search-form" } do |f| %>
+          <%= simple_form_for:search, url: songs_path, method: "GET", input_html: { class: "form-banner" } do |f| %>
 
-          <%= f.input :level, :collection => @levels %>
-          <%= f.input :style, :collection => @styles %>
-          <%= f.submit %>
+          <%= f.input :level, label: "Escolhe o seu nível em francês", label_html: { class: 'form-label' }, :collection => @levels %>
+          <%= f.input :style, label: "Escolhe o seu estilo favorito",label_html: { class: 'form-label' }, :collection => @styles %>
+          <%= f.button :submit, "Descobre a nossa sugestão de músicas", class: "btn-outline" %>
           <% end %>
 
         </div>
