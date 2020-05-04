@@ -63,7 +63,7 @@ artist_seed = ["Christophe Maé", "Iam", "Noir Désir"]
 
 ref_song = [{ "title" => 'Tomber sous le charme', "artist_id" => 1, "level_id" => 1, "style_id" => 2, "url" => 'https://www.youtube.com/watch?v=yRGiYUEFFww', "lyrics" => 'Paroles blablabla' },
           { "title" => 'Petit frère', "artist_id" => 2, "level_id" => 3, "style_id" => 1, "url" => 'https://www.youtube.com/watch?v=INuD2D7R8bk', "lyrics" => 'blablabla' },
-          { "title" => 'Lhomme pressé', "artist_id" => 3, "level_id" => 2, "style_id" => 5, "url" => 'https://www.youtube.com/watch?v=by1RRP9wa_Y', "lyrics" => 'teste noir désir'},
+          { "title" => "L'homme pressé", "artist_id" => 3, "level_id" => 2, "style_id" => 5, "url" => 'https://www.youtube.com/watch?v=by1RRP9wa_Y', "lyrics" => 'teste noir désir'},
           ]
 
 seed_level(level_seed)
