@@ -22,3 +22,12 @@
 .spaceb {
   justify-content: space-between;
 }
+
+.container-home {
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+
+}
