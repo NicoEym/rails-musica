@@ -1,19 +1,22 @@
 <div class="container">
 
-<div class="row">
 
-        <h2><%= @song.title %>  - <%= @song.artist.name %>  </h2>
+  <div class="row center;">
+      <h2><%= @song.title %>  - <%= @song.artist.name %>  </h2>
+  </div>
+  <div class="row spaceb">
+      <h4>Nível: <%= @song.level.name %>  </h4>
+      <h4>Estilo: <%= @song.style.name %>  </h4>
+  </div>
+  <div class="row center">
+    <%= youtube_video ("http://www.youtube.com/embed/#{@song.link_ytb.last(11)}")  %>
+   </div>
 
-        <h2><%= @song.level.name %>  </h2>
-<br>
-        <h2><%= @song.style.name %>  </h2>
-<br>
-</div>
-      <%= youtube_video ("http://www.youtube.com/embed/#{@song.link_ytb.last(11)}")  %>
-
- <br>
+  <div class="row center">
     <h2>Letras:</h2>
+  </div>
 
+  <div class="row center">
     <p><%= @song.lyrics.html_safe %>  </p>
   </div>
 </div>
