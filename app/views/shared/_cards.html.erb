@@ -1,26 +1,37 @@
-<div class="row scroll-overflow">
+<div class="row">
   <% @songs.each do |song| %>
     <div class="col-xs-12 col-md-12">
-      <div class="card">
+
+      <div class="card-song">
+        <%= link_to("Lin", song_path(song.id), class:"card-link")  %>
         <% if song.artist.picture.nil? %>
-          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');">
-          </div>
+          <%  case song.style.name %>
+            <% when "Rap" then %>
+              <img src="https://images.unsplash.com/photo-1487452066049-a710f7296400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80" />
+
+            <% when "Pop/Rock" then %>
+              <img src="https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" />
+
+            <% when "Jazz" then %>
+             <img src="https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+
+            <% when "Reggae" then %>
+              <img src="https://images.unsplash.com/photo-1511766852612-68b47d946def?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" />
+
+            <% when "Variet'" then %>
+              <img src="https://images.unsplash.com/photo-1558584673-c834fb1cc3ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" />
+           <% end %>
+
         <% else %>
-          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= song.artist.picture %>);">
-          </div>
+
         <% end %>
-        <div class="card-infos">
-          <div class="card-details">
-            <div class="card-name">
-              <h2><%= song.title %> - <%= song.artist.name %> <%= link_to("Link", song_path(song.id), class:"card-link")  %></h2>
 
-            </div>
-            <div class="card-events">
-              <h6 style="margin-bottom: 0px;"><strong><%= song.level.name %></strong></h6>
+          <div class="card-song-infos">
+            <h2><%= song.title %> - <%= song.artist.name %> </h2>
+            <h6><%= song.level.name %> - <%= song.style.name %> </h6>
 
-            </div>
+
           </div>
-        </div>
 
       </div>
     </div>
