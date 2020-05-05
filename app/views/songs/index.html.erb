@@ -1,9 +1,16 @@
 <div class="container">
-  <div class="row">
 
+  <div class="row center">
+    <% if @songs.count > 1 %>
+       <h1> Nos achamos <%= @songs.count %> músicas francesas legais para você...  </h1>
+    <% elsif @songs.count == 1 %>
+      <h1> Nos achamos <%= @songs.count %> música francesa legal para você...  </h1>
+    <% else %>
+        <h1> Nos não achamos nenhuma música para você...  </h1>
+    <% end %>
+
+  </div>
 
         <%= render 'shared/cards', song: @songs %>
 
-
-    </div>
 </div>
