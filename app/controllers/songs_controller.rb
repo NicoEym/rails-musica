@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
   def index
     @search = params["search"]
+
+
     if @search.present?
 
       if @search['level'].empty? && @search['style'].empty?
@@ -27,9 +29,9 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
   end
 
-  # private
+  private
 
   # def song_params
-  #   params.require(:song).permit(:level, :style)
+  #   params.require(:songs).permit(:level, :style)
   # end
 end
