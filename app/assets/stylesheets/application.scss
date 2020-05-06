@@ -16,6 +16,11 @@
 @import "pages/index";
 
 
+body {
+  background-color: #FCF9E8;
+
+}
+
 .center {
   justify-content: center;
 }
@@ -31,4 +36,30 @@
     flex-direction: column;
     justify-content: center;
 
+}
+
+.container {
+    width: 100%;
+    padding: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #FCF8E8;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  color: #483D3F;
+}
+
+h2 {
+  color: #483D3F;
+}
+
+h6 {
+  color: #483D3F;
+}
+
+
+.red {
+  color: #E84855;
 }

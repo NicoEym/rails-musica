@@ -1,37 +1,38 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-sing">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
+
   </button>
 
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Todas as músicas", songs_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item dropdown">
-        <%= link_to "Por nivéis", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <% @levels = Level.all %>
-          <% @levels.each do |level|  %>
-            <%= link_to level.name, songs_path(:level => level), class: "dropdown-item" %>
-
-          <%end %>
-          </div>
-      </li>
-      <li class="nav-item dropdown">
-        <%= link_to "Por estilo", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <% @styles = Style.all %>
-          <% @styles.each do |style|  %>
-            <%= link_to style.name, songs_path(:style => style), class: "dropdown-item" %>
-          <%end %>
-           </div>
-      </li>
-    </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to "Todas as músicas", songs_path, class: "nav-link red" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= link_to "Por nivéis", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <% @levels = Level.all %>
+              <% @levels.each do |level|  %>
+                <%= link_to level.name, songs_path(:level => level), class: "dropdown-item" %>
+              <%end %>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <%= link_to "Por estilo", "#", class: "nav-link red dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <% @styles = Style.all %>
+              <% @styles.each do |style|  %>
+                <%= link_to style.name, songs_path(:style => style), class: "dropdown-item" %>
+              <%end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
