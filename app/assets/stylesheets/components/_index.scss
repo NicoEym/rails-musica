@@ -2,3 +2,69 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+
+
+.white-text {
+  color: rgb(255, 255, 255)!important;
+  &:focus {
+      color: rgb(255, 255, 255);
+    };
+}
+
+.white-color-link {
+  color: white;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+
+body {
+  background-color: #FEEAFB;
+
+}
+
+.center {
+  justify-content: center;
+}
+
+.spaceb {
+  justify-content: space-between;
+}
+
+.container-home {
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.container {
+    width: 100%;
+    padding: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #FEEAFB ;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  color: #483D3F;
+}
+
+h2 {
+  color: #483D3F;
+}
+
+h6 {
+  color: #483D3F;
+}
+
+
+.red {
+  color: #E84855;
+}

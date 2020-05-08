@@ -1,13 +1,14 @@
-<div class="banner" style="background-image: linear-gradient(rgba(100,100,100,0.1),rgba(100,100,100,0.1)), url(https://images.unsplash.com/photo-1481828238384-55757d1249b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1484&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(255,236,250,0.7),rgba(100,100,100,0.1)), url(https://images.unsplash.com/photo-1481828238384-55757d1249b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1484&q=80);">
   <div class="container-home offset-xs-6 offset-md-1">
     <h1>Chante, chante, chante !</h1>
     <p>Aprende o francês com músicas</p>
     <%= simple_form_for:search, url: songs_path, method: "GET", input_html: { class: "form-banner " } do |f| %>
 
-    <%= f.input :level, label: "Escolhe o seu nível em francês", label_html: { class: 'form-label' }, :collection => @levels %>
-    <%= f.input :style, label: "Escolhe o seu estilo favorito",label_html: { class: 'form-label' }, :collection => @styles %>
+    <%= f.input :level, label: "Escolhe o seu nível em francês", label_html: { class: 'form-label' }, :collection => @levels, input_html: {value: "", id: "dropdown_home", class: "placeholder-home white-color-link white-text"} %>
+    <%= f.input :style, label: "Escolhe o seu estilo favorito", label_html: { class: 'form-label' }, :collection => @styles, input_html: {value: "", id: "dropdown_home", class: "placeholder-home white-color-link white-text"} %>
     <%= f.button :submit, "Descobre a nossa sugestão de músicas", class: "btn-outline" %>
     <% end %>
   </div>
 </div>
+
 
