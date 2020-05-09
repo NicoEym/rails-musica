@@ -22,7 +22,7 @@
 
 
 body {
-  background-color: #FEEAFB;
+  background-color: #FDEBFA;
 
 }
 
@@ -35,12 +35,11 @@ body {
 }
 
 .container-home {
-    height: 100vh;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    justify-content: center;
-
+    justify-content: flex-end;
+    padding: 2em;
 }
 
 .container {
@@ -48,7 +47,7 @@ body {
     padding: 2em;
     margin-right: auto;
     margin-left: auto;
-    background-color: #FEEAFB ;
+    background-color: #FDEBFA ;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -67,4 +66,8 @@ h6 {
 
 .red {
   color: #E84855;
+}
+
+.text-align-center {
+  text-align: center;
 }
