@@ -7,13 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
+require 'csv'
 
-html_content = open('https://www.paroles-musique.com/paroles-Christophe_Mae-Dingue_Dingue_Dingue-lyrics,p117659').read
-doc = Nokogiri::HTML(html_content)
 
-doc.search('#lyrics').each_with_index do |element, index|
-  puts "#{index + 1}. #{element.text.strip}"
-end
+
 
 # def seed_level(level_array)
 
@@ -34,6 +31,52 @@ end
 # end
 
 
+level_seed = ["Débutant", "Intermédiaire", "Expert"]
+
+style_seed = ["Rap/RnB/Soul", "Variet'", "Jazz", "Reggae", "Pop/Rock"]
+
+seed_level(level_seed)
+seed_style(style_seed)
+
+
+
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filesongs    = 'beers.csv'
+fileartists    = 'beers.csv'
+
+
+CSV.foreach(filesongs, csv_options) do |row|
+  Artist.create(name: row['artist'])
+  puts "Creating #{artist.name}"
+
+end
+
+
+
+
+
+CSV.foreach(filesongs, csv_options) do |row|
+
+artist_id = Artist.where(name: row['artist'])
+
+row['level']
+row['style']
+
+  Song.create(title: row['title'], artist_id: song["artist_id"], level_id: song["level_id"], style_id: song["style_id"], link_ytb: row['link_ytb'], link_lyrics: row['link_lyrics'] )
+end
+
+
+
+
+html_content = open('https://www.paroles-musique.com/paroles-Christophe_Mae-Dingue_Dingue_Dingue-lyrics,p117659').read
+doc = Nokogiri::HTML(html_content)
+
+doc.search('#lyrics').each_with_index do |element, index|
+  puts "#{index + 1}. #{element.text.strip}"
+end
+
+
+
 # def seed_artist(artist_array)
 
 #   artist_array.each do |artist|
@@ -46,14 +89,6 @@ end
 
 
 
-# def seed_song(songs)
-
-#   songs.each do |song|
-#     Song.create(title: song["title"], artist_id: song["artist_id"], level_id: song["level_id"], style_id: song["style_id"], link_ytb: song["url"], lyrics: song["lyrics"] )
-#     puts "Creating #{song["title"]}"
-#   end
-
-# end
 
 
 # Level.delete_all
@@ -62,19 +97,9 @@ end
 # Song.delete_all
 
 
-# level_seed = ["Débutant", "Intermédiaire", "Expert"]
-
-# style_seed = ["Rap", "Variet'", "Jazz", "Reggae", "Pop/Rock"]
-
-# artist_seed = ["Christophe Maé", "Iam", "Noir Désir"]
 
 
-# ref_song = [{ "title" => 'Tomber sous le charme', "artist_id" => 1, "level_id" => 1, "style_id" => 2, "url" => 'https://www.youtube.com/watch?v=yRGiYUEFFww', "lyrics" => 'Paroles blablabla' },
-#           { "title" => 'Petit frère', "artist_id" => 2, "level_id" => 3, "style_id" => 1, "url" => 'https://www.youtube.com/watch?v=INuD2D7R8bk', "lyrics" => 'blablabla' },
-#           { "title" => "L'homme pressé", "artist_id" => 3, "level_id" => 2, "style_id" => 5, "url" => 'https://www.youtube.com/watch?v=by1RRP9wa_Y', "lyrics" => 'teste noir désir'},
-#           ]
 
-# seed_level(level_seed)
-# seed_style(style_seed)
+
 # seed_artist(artist_seed)
 # seed_song(ref_song)
