@@ -9,26 +9,39 @@ require 'open-uri'
 require 'nokogiri'
 require 'csv'
 
+# Level.delete_all
+# Style.delete_all
+# Artist.delete_all
+# Song.delete_all
 
+def scraping(link)
 
+  html_content = open(link).read
+  doc = Nokogiri::HTML(html_content)
 
-# def seed_level(level_array)
+  doc.search('#lyrics').each do |element|
+    letras = element.text.strip
+  end
+  letras
+end
 
-#   level_array.each do |level|
-#     Level.create(name: level)
-#     puts "Creating #{level}"
-#   end
+def seed_level(level_array)
 
-# end
+  level_array.each do |level|
+    Level.create(name: level)
+    puts "Creating #{level}"
+  end
 
-# def seed_style(style_array)
+end
 
-#   style_array.each do |style|
-#     Style.create(name: style)
-#     puts "Creating #{style}"
-#   end
+def seed_style(style_array)
 
-# end
+  style_array.each do |style|
+    Style.create(name: style)
+    puts "Creating #{style}"
+  end
+
+end
 
 
 level_seed = ["Débutant", "Intermédiaire", "Expert"]
@@ -41,67 +54,32 @@ seed_style(style_seed)
 
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filesongs    = 'songs.csv'
-
-
-
-CSV.foreach(filesongs, csv_options) do |row|
-  Artist.create(name: row['artist'])
-  puts "Creating #{artist.name}"
-
-end
-
-
-
-
+filesongs    = '/db/csv_repos/songs.csv'
 
 CSV.foreach(filesongs, csv_options) do |row|
 
-  Artist.create(name: row['artist']) ? Artist.where(name: row['artist']).empty?
+  if Artist.where(name: row['artist']).empty?
+    Artist.create(name: row['artist'])
+    puts "Creating #{row['artist']}"
+  end
 
   artist_id = Artist.find_by(name: row['artist']).id
   level_id = Level.find_by(name: row['level']).id
   style_id = Style.find_by(name: row['style']).id
+  lyrics = scraping(row['link_lyrics'])
 
+  Song.create(title: row['title'], artist_id: artist_id, level_id: level_id, style_id: style_id, lyrics: lyrics, link_ytb: row['link_ytb'], link_lyrics: row['link_lyrics'] )
+  puts "Creating #{row['title']}"
 
-  Song.create(title: row['title'], artist_id: artist_id, level_id: level_id, style_id: style_id, link_ytb: row['link_ytb'], link_lyrics: row['link_lyrics'] )
 end
 
 
 
 
-html_content = open('https://www.paroles-musique.com/paroles-Christophe_Mae-Dingue_Dingue_Dingue-lyrics,p117659').read
-doc = Nokogiri::HTML(html_content)
-
-doc.search('#lyrics').each_with_index do |element, index|
-  puts "#{index + 1}. #{element.text.strip}"
-end
-
-
-
-# def seed_artist(artist_array)
-
-#   artist_array.each do |artist|
-#     Artist.create(name: artist)
-#     puts "Creating #{artist}"
-#   end
-
-# end
 
 
 
 
 
 
-# Level.delete_all
-# Style.delete_all
-# Artist.delete_all
-# Song.delete_all
 
-
-
-
-
-
-# seed_artist(artist_seed)
-# seed_song(ref_song)
