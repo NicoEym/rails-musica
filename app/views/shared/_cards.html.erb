@@ -6,7 +6,7 @@
         <%= link_to("Lin", song_path(song.id), class:"card-link")  %>
         <% if song.artist.picture.nil? %>
           <%  case song.style.name %>
-            <% when "Rap" then %>
+            <% when "Rap/RnB/Soul" then %>
               <img src="https://images.unsplash.com/photo-1487452066049-a710f7296400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80" />
 
             <% when "Pop/Rock" then %>
@@ -18,7 +18,7 @@
             <% when "Reggae" then %>
               <img src="https://images.unsplash.com/photo-1511766852612-68b47d946def?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" />
 
-            <% when "Variet'" then %>
+            <% when "Variété" then %>
               <img src="https://images.unsplash.com/photo-1558584673-c834fb1cc3ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" />
            <% end %>
 
