@@ -40,7 +40,7 @@ seed_style(style_seed)
 
 
 csv_options = { col_sep: ';', quote_char: '"', headers: :first_row }
-filesongs    = 'db/test/test.csv'
+filesongs    = 'db/csv_repos/songs.csv'
 
 CSV.foreach(filesongs, csv_options) do |row|
 
@@ -58,7 +58,6 @@ CSV.foreach(filesongs, csv_options) do |row|
   style_id = Style.find_by(name: row['style']).id
   puts style_id
 
-  puts row['link_lyrics']
 
   # html_content = open(row['link_lyrics']).read
   # doc = Nokogiri::HTML(html_content)
