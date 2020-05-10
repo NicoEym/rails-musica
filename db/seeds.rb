@@ -41,8 +41,8 @@ seed_style(style_seed)
 
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filesongs    = 'beers.csv'
-fileartists    = 'beers.csv'
+filesongs    = 'songs.csv'
+
 
 
 CSV.foreach(filesongs, csv_options) do |row|
@@ -57,12 +57,14 @@ end
 
 CSV.foreach(filesongs, csv_options) do |row|
 
-artist_id = Artist.where(name: row['artist'])
+  Artist.create(name: row['artist']) ? Artist.where(name: row['artist']).empty?
 
-row['level']
-row['style']
+  artist_id = Artist.find_by(name: row['artist']).id
+  level_id = Level.find_by(name: row['level']).id
+  style_id = Style.find_by(name: row['style']).id
 
-  Song.create(title: row['title'], artist_id: song["artist_id"], level_id: song["level_id"], style_id: song["style_id"], link_ytb: row['link_ytb'], link_lyrics: row['link_lyrics'] )
+
+  Song.create(title: row['title'], artist_id: artist_id, level_id: level_id, style_id: style_id, link_ytb: row['link_ytb'], link_lyrics: row['link_lyrics'] )
 end
 
 
