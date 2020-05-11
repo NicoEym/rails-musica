@@ -30,7 +30,7 @@ def seed_style(style_array)
 end
 
 
-level_seed = ["Débutant", "Intermédiaire", "Expert"]
+level_seed = ["Principiante", "Intermediário", "Experto"]
 
 style_seed = ["Rap/RnB/Soul", "Variété", "Jazz", "Reggae", "Pop/Rock"]
 
