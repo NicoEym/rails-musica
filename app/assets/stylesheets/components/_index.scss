@@ -22,7 +22,7 @@
 
 
 body {
-  background-color: #FDEBFA;
+  background-color: #FFFFFC;
 
 }
 
@@ -47,8 +47,9 @@ body {
     padding: 2em;
     margin-right: auto;
     margin-left: auto;
-    background-color: #FDEBFA ;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFE ;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    min-height: 80vh;
 }
 
 p {
